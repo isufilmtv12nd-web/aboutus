@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Team</title>
+  <title>About Us | 畢展團隊</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,11 +12,14 @@
     :root {
       --bg: #f6f4ef;
       --text: #111111;
-      --subtext: #5b5b5b;
+      --subtext: #5f5f5f;
       --line: rgba(17, 17, 17, 0.12);
-      --card: rgba(255, 255, 255, 0.72);
-      --card-strong: rgba(255, 255, 255, 0.88);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --card: rgba(255, 255, 255, 0.76);
+      --card-strong: rgba(255, 255, 255, 0.9);
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
     }
 
     html {
@@ -25,10 +28,10 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang TC",
-        "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang TC",
+        "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -44,7 +47,7 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
 
     .top-title {
@@ -60,7 +63,7 @@
       gap: 48px;
       align-items: end;
       min-height: 52vh;
-      padding: 38px 0 60px;
+      padding: 36px 0 60px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -73,7 +76,7 @@
     }
 
     .hero h1 {
-      margin: 0 0 20px;
+      margin: 0 0 18px;
       font-size: clamp(42px, 7vw, 96px);
       line-height: 0.95;
       letter-spacing: -0.04em;
@@ -121,12 +124,12 @@
     }
 
     .intro-text {
-      max-width: 840px;
+      max-width: 860px;
       color: var(--subtext);
       font-size: 17px;
     }
 
-    .leadership-list {
+    .leadership-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
@@ -136,75 +139,150 @@
     .leader-card {
       background: var(--card-strong);
       border: 1px solid rgba(17, 17, 17, 0.08);
-      border-radius: 24px;
-      padding: 28px 26px;
+      border-radius: var(--radius-xl);
+      padding: 30px 28px;
       box-shadow: var(--shadow);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .leader-card:hover,
-    .member-item:hover {
+    .dept-card:hover,
+    .sub-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.06);
     }
 
-    .name-row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 16px;
+    .mini-label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--subtext);
+      margin-bottom: 12px;
     }
 
-    .name-zh {
-      font-size: 28px;
+    .leader-name {
+      font-size: clamp(24px, 2vw, 34px);
       line-height: 1.1;
       letter-spacing: -0.03em;
       font-weight: 700;
-      margin: 0;
+      margin: 0 0 8px;
     }
 
-    .name-en {
-      font-size: 13px;
-      color: var(--subtext);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .role-zh {
+    .leader-role {
       font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .role-en {
-      font-size: 14px;
       color: var(--subtext);
     }
 
-    .members-list {
+    .departments-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 28px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
 
-    .member-item {
+    .dept-card {
       background: var(--card);
       border: 1px solid rgba(17, 17, 17, 0.08);
-      border-radius: 20px;
-      padding: 22px 20px;
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
       box-shadow: var(--shadow);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      min-height: 155px;
     }
 
-    .member-item .name-zh {
+    .dept-name {
+      margin: 0 0 6px;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .dept-en {
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--subtext);
+      margin-bottom: 22px;
+    }
+
+    .block {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .block:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .block-title {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--subtext);
+      margin-bottom: 10px;
+    }
+
+    .lead-list,
+    .member-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+    }
+
+    .person-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.04);
+      border: 1px solid rgba(17, 17, 17, 0.06);
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .person-tag.lead {
+      background: rgba(17, 17, 17, 0.06);
+      font-weight: 600;
+    }
+
+    .public-relations {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .sub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .sub-card {
+      background: var(--card);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .sub-name {
+      margin: 0 0 6px;
       font-size: 22px;
-      margin-bottom: 2px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
 
-    .member-item .name-en {
-      margin-bottom: 14px;
+    .sub-en {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--subtext);
+      margin-bottom: 18px;
     }
 
     .closing {
@@ -242,8 +320,15 @@
     }
 
     @media (max-width: 980px) {
-      .hero {
+      .hero,
+      .section-header,
+      .departments-grid,
+      .leadership-grid,
+      .sub-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
         min-height: auto;
         gap: 24px;
       }
@@ -253,15 +338,6 @@
         border-top: 1px solid var(--line);
         padding-left: 0;
         padding-top: 16px;
-      }
-
-      .section-header {
-        grid-template-columns: 1fr;
-      }
-
-      .leadership-list,
-      .members-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -279,22 +355,18 @@
         font-size: 17px;
       }
 
-      .leadership-list,
-      .members-list {
-        grid-template-columns: 1fr;
-      }
-
       .leader-card,
-      .member-item {
-        padding: 20px 18px;
+      .dept-card,
+      .sub-card {
+        padding: 22px 18px;
       }
 
-      .name-zh {
+      .dept-name {
         font-size: 24px;
       }
 
-      .member-item .name-zh {
-        font-size: 20px;
+      .leader-name {
+        font-size: 26px;
       }
     }
   </style>
@@ -307,7 +379,7 @@
 
     <section class="hero">
       <div>
-        <div class="eyebrow">Team Introduction</div>
+        <div class="eyebrow">Exhibition Team</div>
         <h1>關於我們</h1>
         <div class="hero-subtitle">
           我們是一群把想法變成影像的人。<br>
@@ -316,116 +388,228 @@
       </div>
 
       <div class="hero-note">
-        我們來自不同背景，因為共同的創作信念而聚在一起。<br>
-        在每一次合作中，我們重視溝通、細節與情感，
-        希望把想法轉化為真正能被看見與感受的影像。
+        我們因共同的目標而聚在一起，從企劃、執行、宣傳到現場活動，
+        在不同位置上彼此支撐，讓每一次合作都能成為完整而真誠的呈現。
       </div>
     </section>
 
     <section class="section">
       <div class="section-header">
-        <div class="section-label">Leadership</div>
+        <div class="section-label">Core Leadership</div>
         <div>
-          <h2 class="section-title">幹部名單</h2>
+          <h2 class="section-title">統籌核心</h2>
           <div class="intro-text">
-            核心成員負責團隊的整體方向、執行整合與創作核心，
-            讓每一次合作都能在共同理念下穩定前進。
+            作為整體運作的核心，統籌團隊負責協調方向、整合執行與連結各組，
+            讓整個畢展團隊能夠在共同節奏中穩定前進。
           </div>
         </div>
       </div>
 
-      <div class="leadership-list">
+      <div class="leadership-grid">
         <article class="leader-card">
-          <div class="name-row">
-            <h3 class="name-zh">王小明</h3>
-            <div class="name-en">WANG XIAO MING</div>
-          </div>
-          <div class="role-zh">導演｜總策劃</div>
-          <div class="role-en">Director | Creative Lead</div>
+          <div class="mini-label">Lead Coordinator</div>
+          <h3 class="leader-name">林沅澤</h3>
+          <div class="leader-role">統籌</div>
         </article>
 
         <article class="leader-card">
-          <div class="name-row">
-            <h3 class="name-zh">林安琪</h3>
-            <div class="name-en">LIN AN CHI</div>
-          </div>
-          <div class="role-zh">製片｜企劃統籌</div>
-          <div class="role-en">Producer | Project Coordinator</div>
-        </article>
-
-        <article class="leader-card">
-          <div class="name-row">
-            <h3 class="name-zh">陳宇辰</h3>
-            <div class="name-en">CHEN YU CHEN</div>
-          </div>
-          <div class="role-zh">攝影指導｜影像設計</div>
-          <div class="role-en">Director of Photography | Visual Designer</div>
-        </article>
-
-        <article class="leader-card">
-          <div class="name-row">
-            <h3 class="name-zh">張語涵</h3>
-            <div class="name-en">CHANG YU HAN</div>
-          </div>
-          <div class="role-zh">美術設計｜場景造型</div>
-          <div class="role-en">Production Designer | Set Styling</div>
+          <div class="mini-label">Deputy Coordinator</div>
+          <h3 class="leader-name">林思彥</h3>
+          <div class="leader-role">副統籌</div>
         </article>
       </div>
     </section>
 
     <section class="section">
       <div class="section-header">
-        <div class="section-label">Members</div>
+        <div class="section-label">Departments</div>
         <div>
-          <h2 class="section-title">組員名單</h2>
+          <h2 class="section-title">各組別</h2>
           <div class="intro-text">
-            團隊由不同職能的組員共同協作，從前期發想到後期完成，
-            每個位置都讓故事更完整。
+            每一個組別都承擔著不同但同樣重要的角色，從行政、影像、美宣、公關到活動執行，
+            共同構成這場展演背後的完整團隊。
           </div>
         </div>
       </div>
 
-      <div class="members-list">
-        <article class="member-item">
-          <h3 class="name-zh">李承恩</h3>
-          <div class="name-en">LI CHENG EN</div>
-          <div class="role-zh">剪輯｜後期製作</div>
-          <div class="role-en">Editor | Post-Production</div>
+      <div class="departments-grid">
+        <article class="dept-card">
+          <h3 class="dept-name">財政組</h3>
+          <div class="dept-en">Finance</div>
+
+          <div class="block">
+            <div class="block-title">負責人</div>
+            <div class="lead-list">
+              <span class="person-tag lead">hinata</span>
+              <span class="person-tag lead">施會深</span>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="block-title">組員</div>
+            <div class="member-list">
+              <span class="person-tag">子盈</span>
+              <span class="person-tag">穎姿</span>
+            </div>
+          </div>
         </article>
 
-        <article class="member-item">
-          <h3 class="name-zh">吳品妍</h3>
-          <div class="name-en">WU PIN YAN</div>
-          <div class="role-zh">社群宣傳｜品牌溝通</div>
-          <div class="role-en">Communications | Brand & Social Media</div>
+        <article class="dept-card">
+          <h3 class="dept-name">攝剪組</h3>
+          <div class="dept-en">Cinematography & Editing</div>
+
+          <div class="block">
+            <div class="block-title">負責人</div>
+            <div class="lead-list">
+              <span class="person-tag lead">周聖諺</span>
+              <span class="person-tag lead">簡子濱</span>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="block-title">組員</div>
+            <div class="member-list">
+              <span class="person-tag">楊景允</span>
+              <span class="person-tag">葉卓蘭</span>
+              <span class="person-tag">劉凱偉</span>
+              <span class="person-tag">鄭文淵</span>
+              <span class="person-tag">林佩辰</span>
+              <span class="person-tag">孫雅妮</span>
+            </div>
+          </div>
         </article>
 
-        <article class="member-item">
-          <h3 class="name-zh">黃心語</h3>
-          <div class="name-en">HUANG XIN YU</div>
-          <div class="role-zh">執行製作｜現場協力</div>
-          <div class="role-en">Production Assistant | On-site Support</div>
+        <article class="dept-card">
+          <h3 class="dept-name">美宣組</h3>
+          <div class="dept-en">Art & Promotion</div>
+
+          <div class="block">
+            <div class="block-title">負責人</div>
+            <div class="lead-list">
+              <span class="person-tag lead">蔡菱庭</span>
+              <span class="person-tag lead">陳又榛</span>
+              <span class="person-tag lead">beika</span>
+              <span class="person-tag lead">優海</span>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="block-title">組員</div>
+            <div class="member-list">
+              <span class="person-tag">bobo</span>
+              <span class="person-tag">施雅馨</span>
+              <span class="person-tag">劉晏君</span>
+              <span class="person-tag">林琛茹</span>
+              <span class="person-tag">雞爪</span>
+            </div>
+          </div>
         </article>
 
-        <article class="member-item">
-          <h3 class="name-zh">周柏睿</h3>
-          <div class="name-en">CHOU PO JUI</div>
-          <div class="role-zh">燈光助理｜器材管理</div>
-          <div class="role-en">Lighting Assistant | Equipment Support</div>
-        </article>
+        <article class="dept-card">
+          <h3 class="dept-name">活動組</h3>
+          <div class="dept-en">Event Planning</div>
 
-        <article class="member-item">
-          <h3 class="name-zh">許庭瑄</h3>
-          <div class="name-en">HSU TING HSUAN</div>
-          <div class="role-zh">場記｜現場統整</div>
-          <div class="role-en">Script Supervisor | Set Coordination</div>
-        </article>
+          <div class="block">
+            <div class="block-title">負責人</div>
+            <div class="lead-list">
+              <span class="person-tag lead">王于庭</span>
+              <span class="person-tag lead">蘇品伃</span>
+            </div>
+          </div>
 
-        <article class="member-item">
-          <h3 class="name-zh">鄭宇翔</h3>
-          <div class="name-en">CHENG YU HSIANG</div>
-          <div class="role-zh">平面設計｜視覺延伸</div>
-          <div class="role-en">Graphic Designer | Visual Support</div>
+          <div class="block">
+            <div class="block-title">組員</div>
+            <div class="member-list">
+              <span class="person-tag">043</span>
+              <span class="person-tag">薯條</span>
+              <span class="person-tag">淑敏</span>
+              <span class="person-tag">君婷</span>
+              <span class="person-tag">勵沚晴</span>
+              <span class="person-tag">香齡</span>
+              <span class="person-tag">林巧茵</span>
+              <span class="person-tag">李靖怡</span>
+              <span class="person-tag">詩閔</span>
+              <span class="person-tag">mandy</span>
+              <span class="person-tag">梓銘</span>
+              <span class="person-tag">小樂</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="public-relations">
+        <article class="dept-card">
+          <h3 class="dept-name">公關組</h3>
+          <div class="dept-en">Public Relations</div>
+
+          <div class="intro-text" style="font-size:15px; max-width:none; margin-top:4px;">
+            公關組下設不同子組，分別負責媒體資訊、贊助與影評人聯繫，
+            讓外部溝通與展演連結更完整。
+          </div>
+
+          <div class="sub-grid">
+            <article class="sub-card">
+              <h4 class="sub-name">媒體資訊</h4>
+              <div class="sub-en">Media Information</div>
+
+              <div class="block">
+                <div class="block-title">負責人</div>
+                <div class="lead-list">
+                  <span class="person-tag lead">菜海</span>
+                  <span class="person-tag lead">會深</span>
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">組員</div>
+                <div class="member-list">
+                  <span class="person-tag">林雅馨</span>
+                  <span class="person-tag">麗晶</span>
+                  <span class="person-tag">黃家恩</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="sub-card">
+              <h4 class="sub-name">贊助</h4>
+              <div class="sub-en">Sponsorship</div>
+
+              <div class="block">
+                <div class="block-title">負責人</div>
+                <div class="lead-list">
+                  <span class="person-tag lead">秉蓉</span>
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">組員</div>
+                <div class="member-list">
+                  <span class="person-tag">周詠貴</span>
+                  <span class="person-tag">陳宜吟</span>
+                  <span class="person-tag">彭云</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="sub-card">
+              <h4 class="sub-name">影評人</h4>
+              <div class="sub-en">Critics Relations</div>
+
+              <div class="block">
+                <div class="block-title">負責人</div>
+                <div class="lead-list">
+                  <span class="person-tag lead">玟蒨</span>
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">組員</div>
+                <div class="member-list">
+                  <span class="person-tag">歐陽</span>
+                </div>
+              </div>
+            </article>
+          </div>
         </article>
       </div>
     </section>
