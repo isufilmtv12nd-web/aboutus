@@ -8,7 +8,7 @@
 <style>
 body{
   margin:0;
-  font-family:-apple-system, BlinkMacSystemFont;
+  font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   background:#f6f4ef;
   color:#111;
 }
@@ -16,10 +16,10 @@ body{
 .page{
   width:min(1100px, calc(100% - 40px));
   margin:auto;
-  padding:30px 0;
+  padding:30px 0 60px;
 }
 
-/* 🔹 語言按鈕 */
+/* 語言按鈕 */
 .lang-switch{
   position:fixed;
   top:20px;
@@ -30,12 +30,21 @@ body{
   border-radius:999px;
   cursor:pointer;
   font-size:13px;
+  z-index:1000;
 }
 
-[data-lang="en"]{ display:none; }
+[data-lang="en"]{
+  display:none;
+}
 
 h1{
   font-size:60px;
+  line-height:1.05;
+  margin:0 0 12px;
+}
+
+p{
+  line-height:1.7;
 }
 
 .section{
@@ -47,6 +56,8 @@ h1{
   padding:20px;
   border-radius:16px;
   margin-bottom:15px;
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:blur(6px);
 }
 
 .tag{
@@ -56,84 +67,110 @@ h1{
   border-radius:999px;
   margin:5px;
 }
-  
-/* 🔹 社群區 */
-.social-section{
-  margin:80px 0;
-  display:flex;
-  justify-content:center;
-}
 
-.social-container{
-  display:flex;
-  gap:20px;
-  background:#e8e3d6;
-  padding:20px 30px;
-  border-radius:20px;
-}
-
-.social-btn{
-  width:60px;
-  height:60px;
-  background:#fff;
-  border-radius:16px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  transition:all 0.25s ease;
-}
-
-.social-btn img{
-  width:26px;
-  height:26px;
-}
-
-.social-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.12);
-}
-
-/* 🔹 上方社群區 */
+/* 上方社群區 */
 .social-hero{
   display:flex;
   justify-content:center;
-  margin:40px 0 20px;
+  margin:20px 0 38px;
 }
 
-/* 🔹 白色大卡片 */
 .social-container.big{
   display:flex;
-  gap:28px;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:26px;
   background:#ffffff;
-  padding:30px 40px;
-  border-radius:24px;
+  padding:28px 32px;
+  border-radius:28px;
   box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  width:min(100%, 980px);
 }
 
-/* 🔹 按鈕放大 */
+.social-item{
+  text-decoration:none;
+  color:#111;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  min-width:110px;
+}
+
 .social-btn.big{
-  width:80px;
-  height:80px;
-  border-radius:20px;
+  width:88px;
+  height:88px;
+  border-radius:22px;
   background:#f5f5f5;
   display:flex;
   justify-content:center;
   align-items:center;
   transition:all 0.25s ease;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.04);
 }
 
-/* icon變大 */
 .social-btn.big img{
-  width:34px;
-  height:34px;
+  width:36px;
+  height:36px;
 }
 
-/* hover更高級 */
-.social-btn.big:hover{
+.social-text{
+  font-size:13px;
+  opacity:0.75;
+  text-align:center;
+  line-height:1.45;
+  word-break:break-word;
+}
+
+.social-item:hover .social-btn.big{
   transform:translateY(-6px) scale(1.05);
   box-shadow:0 15px 30px rgba(0,0,0,0.15);
 }
 
+.social-item:hover .social-text{
+  opacity:1;
+}
+
+@media (max-width: 768px){
+  .page{
+    width:min(100%, calc(100% - 24px));
+    padding:20px 0 40px;
+  }
+
+  h1{
+    font-size:40px;
+  }
+
+  .social-container.big{
+    gap:18px;
+    padding:22px 18px;
+    border-radius:22px;
+  }
+
+  .social-item{
+    min-width:92px;
+  }
+
+  .social-btn.big{
+    width:74px;
+    height:74px;
+    border-radius:18px;
+  }
+
+  .social-btn.big img{
+    width:30px;
+    height:30px;
+  }
+
+  .social-text{
+    font-size:12px;
+  }
+
+  .lang-switch{
+    top:14px;
+    right:14px;
+  }
+}
 </style>
 </head>
 
@@ -142,244 +179,216 @@ h1{
 <div class="lang-switch" onclick="toggleLang()">EN</div>
 
 <div class="page">
-<!-- 社群媒體 TOP -->
-<div class="social-hero">
-  <div class="social-container big">
 
-    <a href="#" target="_blank" class="social-btn big">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg">
-    </a>
+  <!-- 社群媒體 TOP -->
+  <div class="social-hero">
+    <div class="social-container big">
 
-    <a href="#" target="_blank" class="social-btn big">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg">
-    </a>
+      <a href="https://instagram.com/your_account" target="_blank" class="social-item">
+        <div class="social-btn big">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </div>
+        <div class="social-text">@your_account</div>
+      </a>
 
-    <a href="#" target="_blank" class="social-btn big">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg">
-    </a>
+      <a href="https://youtube.com/@yourchannel" target="_blank" class="social-item">
+        <div class="social-btn big">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </div>
+        <div class="social-text">@yourchannel</div>
+      </a>
 
-    <a href="#" target="_blank" class="social-btn big">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/link.svg">
-    </a>
+      <a href="https://facebook.com/yourpage" target="_blank" class="social-item">
+        <div class="social-btn big">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+        </div>
+        <div class="social-text">yourpage</div>
+      </a>
 
-    <a href="mailto:your@email.com" class="social-btn big">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg">
-    </a>
+      <a href="https://yourwebsite.com" target="_blank" class="social-item">
+        <div class="social-btn big">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/link.svg" alt="Official Link">
+        </div>
+        <div class="social-text">yourwebsite.com</div>
+      </a>
 
+      <a href="mailto:your@email.com" class="social-item">
+        <div class="social-btn big">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
+        </div>
+        <div class="social-text">your@email.com</div>
+      </a>
+
+    </div>
   </div>
-</div>
-  
-<h1>
-  <span data-lang="zh">關於我們</span>
-  <span data-lang="en">ABOUT US</span>
-</h1>
 
-<p>
-  <span data-lang="zh">我們是一群把想法變成影像的人</span>
-  <span data-lang="en">We turn ideas into visual stories</span>
-</p>
+  <h1>
+    <span data-lang="zh">關於我們</span>
+    <span data-lang="en">ABOUT US</span>
+  </h1>
 
-<!-- 統籌 -->
-<div class="section">
-<h2>
-  <span data-lang="zh">總召組</span>
-  <span data-lang="en">Core Leadership</span>
-</h2>
+  <p>
+    <span data-lang="zh">我們是一群把想法變成影像的人</span>
+    <span data-lang="en">We turn ideas into visual stories</span>
+  </p>
 
-<div class="card">
-<b><span data-lang="zh">總召</span><span data-lang="en">Leads</span></b><br>
+  <!-- 統籌 -->
+  <div class="section">
+    <h2>
+      <span data-lang="zh">總召組</span>
+      <span data-lang="en">Core Leadership</span>
+    </h2>
 
-<span class="tag"><span data-lang="zh">林沅澤</span><span data-lang="en">MAURICE LAM</span></span>
-</div>
+    <div class="card">
+      <b><span data-lang="zh">總召</span><span data-lang="en">Leads</span></b><br>
+      <span class="tag"><span data-lang="zh">林沅澤</span><span data-lang="en">MAURICE LAM</span></span>
+    </div>
 
-<div class="card">
-<b><span data-lang="zh">副總召</span><span data-lang="en">ASSISTANT Leads</span></b><br>
-
-<span class="tag"><span data-lang="zh">林思彥</span><span data-lang="en">LIM SHI YAN</span></span>
-</div>
-</div>
-
-<!-- 財政 -->
-<div class="section">
-<h2><span data-lang="zh">財政組</span><span data-lang="en">Finance</span></h2>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">吉岡陽葵</span><span data-lang="en">YOSHIOKA HINATA</span></span>
-<span class="tag"><span data-lang="zh">施會深</span><span data-lang="en">SIK HUI SHEN</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">黃子盈</span><span data-lang="en">WONG TSZ YING</span></span>
-<span class="tag"><span data-lang="zh">吳穎姿</span><span data-lang="en">WU YING TZU</span></span>
-</div>
-</div>
-
-<!-- 攝剪 -->
-<div class="section">
-<h2><span data-lang="zh">攝剪組</span><span data-lang="en">Cinematography And Editing</span></h2>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">周聖諺</span><span data-lang="en">CHOU SHENG IAN</span></span>
-<span class="tag"><span data-lang="zh">簡子濱</span><span data-lang="en">JIAN ZIH BIN</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">楊景允</span><span data-lang="en">GERALD YANG</span></span>
-<span class="tag"><span data-lang="zh">葉卓嵐</span><span data-lang="en">IP CHUEK LAAM</span></span>
-<span class="tag"><span data-lang="zh">劉鎧瑋</span><span data-lang="en">KAI WEI LIU</span></span>
-<span class="tag"><span data-lang="zh">鄭文淵</span><span data-lang="en">ZHENG WEN YUAN</span></span>
-<span class="tag"><span data-lang="zh">林珮晨</span><span data-lang="en">PEI CHEN LIN</span></span>
-<span class="tag"><span data-lang="zh">孫雅妮</span><span data-lang="en">SUNNY</span></span>
-</div>
-</div>
-
-<!-- 美宣 -->
-<div class="section">
-<h2><span data-lang="zh">美宣組</span><span data-lang="en">PRODUCTION DESIGN</span></h2>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">蔡菱庭</span><span data-lang="en">TSAI LING TING</span></span>
-<span class="tag"><span data-lang="zh">陳又榛</span><span data-lang="en">CHEN YU CHEN</span></span>
-<span class="tag"><span data-lang="zh">黃翊菱</span><span data-lang="en">YI LING HUANG</span></span>
-<span class="tag"><span data-lang="zh">淺野優海</span><span data-lang="en">ASANO YU</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">蘇雪穎</span><span data-lang="en">SO SUET WING</span></span>
-<span class="tag"><span data-lang="zh">施雅馨</span><span data-lang="en">SHIH YA HSIN</span></span>
-<span class="tag"><span data-lang="zh">劉晏君</span><span data-lang="en">LIU YAN JUN</span></span>
-<span class="tag"><span data-lang="zh">林琛茹</span><span data-lang="en">LAM SUM YU</span></span>
-<span class="tag"><span data-lang="zh">王可穎</span><span data-lang="en">ONG HO WING</span></span>
-</div>
-</div>
-
-<!-- 公關 -->
-<div class="section">
-<h2><span data-lang="zh">公關組</span><span data-lang="en">PUBLIC RELATIONS</span></h2>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">施會深</span><span data-lang="en">SIK HUI SHEN</span></span>
-<span class="tag"><span data-lang="zh">兵藤菜海</span><span data-lang="en">HYODO NANAMI</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">黃家恩</span><span data-lang="en">NG JIA EN FERNANDA</span></span>
-<span class="tag"><span data-lang="zh">薛麗晶</span><span data-lang="en">SIH LEE CHIN</span></span>
-<span class="tag"><span data-lang="zh">林雅馨</span><span data-lang="en">CHRISTINA LIN</span></span>
-</div>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">林秉蓉</span><span data-lang="en">BIN RONG LIN</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">周詠貴</span><span data-lang="en">ZHOU YONG GUI</span></span>
-<span class="tag"><span data-lang="zh">陳宜吟</span><span data-lang="en">CHEN YI YIN</span></span>
-<span class="tag"><span data-lang="zh">彭雲</span><span data-lang="en">YUN PENG</span></span>
-</div>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">駱玟蒨</span><span data-lang="en">LO WEN CHIEN</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">歐陽佩妤</span><span data-lang="en">OU YANG PEI YU</span></span>
-</div>
-</div>
-
-<!-- 活動 -->
-<div class="section">
-<h2><span data-lang="zh">活動組</span><span data-lang="en">EVENTS PLANNING</span></h2>
-
-<div class="card">
-<b><span data-lang="zh">組長</span><span data-lang="en">LEADERS</span></b><br>
-
-<span class="tag"><span data-lang="zh">蘇品伃</span><span data-lang="en">SU PIN YU</span></span>
-<span class="tag"><span data-lang="zh">王于庭</span><span data-lang="en">WANG YU TING</span></span>
-</div>
-
-<div class="card">
-<b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
-
-<span class="tag"><span data-lang="zh">林士生</span><span data-lang="en">SHIH SHENG LIN</span></span>
-<span class="tag"><span data-lang="zh">葉郁淨</span><span data-lang="en">YU JING YE</span></span>
-<span class="tag"><span data-lang="zh">吳淑敏</span><span data-lang="en">NG SHUK MAN</span></span>
-<span class="tag"><span data-lang="zh">施君婷</span><span data-lang="en">ANISTON SZE</span></span>
-<span class="tag"><span data-lang="zh">勵沚晴</span><span data-lang="en">LAI CHI CHING</span></span>
-<span class="tag"><span data-lang="zh">黃香齡</span><span data-lang="en">HUANG XIANG LING</span></span>
-<span class="tag"><span data-lang="zh">林巧茵</span><span data-lang="en">QIAO YIN LIN</span></span>
-<span class="tag"><span data-lang="zh">李靖怡</span><span data-lang="en">SHARON LEE JING YI</span></span>
-<span class="tag"><span data-lang="zh">王詩閔</span><span data-lang="en">WANG SHIH MIN</span></span>
-<span class="tag"><span data-lang="zh">黃莉婷</span><span data-lang="en">MANDY BONG</span></span>
-<span class="tag"><span data-lang="zh">王梓銘</span><span data-lang="en">HING ZI MING</span></span>
-<span class="tag"><span data-lang="zh">梁樂宸</span><span data-lang="en">LIANG LE CHEN</span></span>
-</div>
-</div>
-
-<!-- 結尾 -->
-<div class="section">
-  <!-- 社群連結 -->
-<div class="social-section">
-  <div class="social-container">
-
-    <a href="#" target="_blank" class="social-btn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg">
-    </a>
-
-    <a href="#" target="_blank" class="social-btn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg">
-    </a>
-
-    <a href="#" target="_blank" class="social-btn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg">
-    </a>
-
-    <a href="#" target="_blank" class="social-btn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/link.svg">
-    </a>
-
-    <a href="mailto:your@email.com" class="social-btn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg">
-    </a>
-
+    <div class="card">
+      <b><span data-lang="zh">副總召</span><span data-lang="en">Assistant Leads</span></b><br>
+      <span class="tag"><span data-lang="zh">林思彥</span><span data-lang="en">LIM SHI YAN</span></span>
+    </div>
   </div>
-</div>
-<h2>
-<span data-lang="zh">我們不只是一起工作的人，也是一起完成故事的人。</span>
-<span data-lang="en">We are not just teammates, but storytellers.</span>
-</h2>
 
-<p>
-<span data-lang="zh">每個專案都從人、信任與共同願景開始。</span>
-<span data-lang="en">Every project begins with people, trust, and a shared vision.</span>
-</p>
-</div>
+  <!-- 財政 -->
+  <div class="section">
+    <h2><span data-lang="zh">財政組</span><span data-lang="en">Finance</span></h2>
+
+    <div class="card">
+      <b><span data-lang="zh">組長</span><span data-lang="en">Leaders</span></b><br>
+      <span class="tag"><span data-lang="zh">吉岡陽葵</span><span data-lang="en">YOSHIOKA HINATA</span></span>
+      <span class="tag"><span data-lang="zh">施會深</span><span data-lang="en">SIK HUI SHEN</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
+      <span class="tag"><span data-lang="zh">黃子盈</span><span data-lang="en">WONG TSZ YING</span></span>
+      <span class="tag"><span data-lang="zh">吳穎姿</span><span data-lang="en">WU YING TZU</span></span>
+    </div>
+  </div>
+
+  <!-- 攝剪 -->
+  <div class="section">
+    <h2><span data-lang="zh">攝剪組</span><span data-lang="en">Cinematography and Editing</span></h2>
+
+    <div class="card">
+      <b><span data-lang="zh">組長</span><span data-lang="en">Leaders</span></b><br>
+      <span class="tag"><span data-lang="zh">周聖諺</span><span data-lang="en">CHOU SHENG IAN</span></span>
+      <span class="tag"><span data-lang="zh">簡子濱</span><span data-lang="en">JIAN ZIH BIN</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
+      <span class="tag"><span data-lang="zh">楊景允</span><span data-lang="en">GERALD YANG</span></span>
+      <span class="tag"><span data-lang="zh">葉卓嵐</span><span data-lang="en">IP CHUEK LAAM</span></span>
+      <span class="tag"><span data-lang="zh">劉鎧瑋</span><span data-lang="en">KAI WEI LIU</span></span>
+      <span class="tag"><span data-lang="zh">鄭文淵</span><span data-lang="en">ZHENG WEN YUAN</span></span>
+      <span class="tag"><span data-lang="zh">林珮晨</span><span data-lang="en">PEI CHEN LIN</span></span>
+      <span class="tag"><span data-lang="zh">孫雅妮</span><span data-lang="en">SUNNY</span></span>
+    </div>
+  </div>
+
+  <!-- 美宣 -->
+  <div class="section">
+    <h2><span data-lang="zh">美宣組</span><span data-lang="en">Production Design</span></h2>
+
+    <div class="card">
+      <b><span data-lang="zh">組長</span><span data-lang="en">Leaders</span></b><br>
+      <span class="tag"><span data-lang="zh">蔡菱庭</span><span data-lang="en">TSAI LING TING</span></span>
+      <span class="tag"><span data-lang="zh">陳又榛</span><span data-lang="en">CHEN YU CHEN</span></span>
+      <span class="tag"><span data-lang="zh">黃翊菱</span><span data-lang="en">YI LING HUANG</span></span>
+      <span class="tag"><span data-lang="zh">淺野優海</span><span data-lang="en">ASANO YU</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
+      <span class="tag"><span data-lang="zh">蘇雪穎</span><span data-lang="en">SO SUET WING</span></span>
+      <span class="tag"><span data-lang="zh">施雅馨</span><span data-lang="en">SHIH YA HSIN</span></span>
+      <span class="tag"><span data-lang="zh">劉晏君</span><span data-lang="en">LIU YAN JUN</span></span>
+      <span class="tag"><span data-lang="zh">林琛茹</span><span data-lang="en">LAM SUM YU</span></span>
+      <span class="tag"><span data-lang="zh">王可穎</span><span data-lang="en">ONG HO WING</span></span>
+    </div>
+  </div>
+
+  <!-- 公關 -->
+  <div class="section">
+    <h2><span data-lang="zh">公關組</span><span data-lang="en">Public Relations</span></h2>
+
+    <div class="card">
+      <b><span data-lang="zh">媒體資訊｜組長</span><span data-lang="en">Media Information | Leaders</span></b><br>
+      <span class="tag"><span data-lang="zh">施會深</span><span data-lang="en">SIK HUI SHEN</span></span>
+      <span class="tag"><span data-lang="zh">兵藤菜海</span><span data-lang="en">HYODO NANAMI</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">媒體資訊｜組員</span><span data-lang="en">Media Information | Members</span></b><br>
+      <span class="tag"><span data-lang="zh">黃家恩</span><span data-lang="en">NG JIA EN FERNANDA</span></span>
+      <span class="tag"><span data-lang="zh">薛麗晶</span><span data-lang="en">SIH LEE CHIN</span></span>
+      <span class="tag"><span data-lang="zh">林雅馨</span><span data-lang="en">CHRISTINA LIN</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">贊助｜組長</span><span data-lang="en">Sponsorship | Leader</span></b><br>
+      <span class="tag"><span data-lang="zh">林秉蓉</span><span data-lang="en">BIN RONG LIN</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">贊助｜組員</span><span data-lang="en">Sponsorship | Members</span></b><br>
+      <span class="tag"><span data-lang="zh">周詠貴</span><span data-lang="en">ZHOU YONG GUI</span></span>
+      <span class="tag"><span data-lang="zh">陳宜吟</span><span data-lang="en">CHEN YI YIN</span></span>
+      <span class="tag"><span data-lang="zh">彭雲</span><span data-lang="en">YUN PENG</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">影評人｜組長</span><span data-lang="en">Film Critics | Leader</span></b><br>
+      <span class="tag"><span data-lang="zh">駱玟蒨</span><span data-lang="en">LO WEN CHIEN</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">影評人｜組員</span><span data-lang="en">Film Critics | Member</span></b><br>
+      <span class="tag"><span data-lang="zh">歐陽佩妤</span><span data-lang="en">OU YANG PEI YU</span></span>
+    </div>
+  </div>
+
+  <!-- 活動 -->
+  <div class="section">
+    <h2><span data-lang="zh">活動組</span><span data-lang="en">Events Planning</span></h2>
+
+    <div class="card">
+      <b><span data-lang="zh">組長</span><span data-lang="en">Leaders</span></b><br>
+      <span class="tag"><span data-lang="zh">蘇品伃</span><span data-lang="en">SU PIN YU</span></span>
+      <span class="tag"><span data-lang="zh">王于庭</span><span data-lang="en">WANG YU TING</span></span>
+    </div>
+
+    <div class="card">
+      <b><span data-lang="zh">組員</span><span data-lang="en">Members</span></b><br>
+      <span class="tag"><span data-lang="zh">林士生</span><span data-lang="en">SHIH SHENG LIN</span></span>
+      <span class="tag"><span data-lang="zh">葉郁淨</span><span data-lang="en">YU JING YE</span></span>
+      <span class="tag"><span data-lang="zh">吳淑敏</span><span data-lang="en">NG SHUK MAN</span></span>
+      <span class="tag"><span data-lang="zh">施君婷</span><span data-lang="en">ANISTON SZE</span></span>
+      <span class="tag"><span data-lang="zh">勵沚晴</span><span data-lang="en">LAI CHI CHING</span></span>
+      <span class="tag"><span data-lang="zh">黃香齡</span><span data-lang="en">HUANG XIANG LING</span></span>
+      <span class="tag"><span data-lang="zh">林巧茵</span><span data-lang="en">QIAO YIN LIN</span></span>
+      <span class="tag"><span data-lang="zh">李靖怡</span><span data-lang="en">SHARON LEE JING YI</span></span>
+      <span class="tag"><span data-lang="zh">王詩閔</span><span data-lang="en">WANG SHIH MIN</span></span>
+      <span class="tag"><span data-lang="zh">黃莉婷</span><span data-lang="en">MANDY BONG</span></span>
+      <span class="tag"><span data-lang="zh">王梓銘</span><span data-lang="en">HING ZI MING</span></span>
+      <span class="tag"><span data-lang="zh">梁樂宸</span><span data-lang="en">LIANG LE CHEN</span></span>
+    </div>
+  </div>
+
+  <!-- 結尾 -->
+  <div class="section">
+    <h2>
+      <span data-lang="zh">我們不只是一起工作的人，也是一起完成故事的人。</span>
+      <span data-lang="en">We are not just teammates, but storytellers.</span>
+    </h2>
+
+    <p>
+      <span data-lang="zh">每個專案都從人、信任與共同願景開始。</span>
+      <span data-lang="en">Every project begins with people, trust, and a shared vision.</span>
+    </p>
+  </div>
 
 </div>
 
